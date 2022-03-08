@@ -24,12 +24,36 @@ export default {
 </script>
 
 <style lang="scss">
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
+  
+ul {
+  list-style: none;
+}
+  
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1024px;
+}
+
 </style>
