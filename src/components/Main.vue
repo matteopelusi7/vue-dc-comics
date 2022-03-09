@@ -1,8 +1,10 @@
 <template>
   <main>
+
     <div class="container">
       <p>{{ text }}</p>
     </div>
+    
   </main>
 </template>
 

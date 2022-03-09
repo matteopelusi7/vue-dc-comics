@@ -53,7 +53,7 @@ a {
 
 .container {
   margin: 0 auto;
-  max-width: 1024px;
+  max-width: 1100px;
 }
 
 </style>

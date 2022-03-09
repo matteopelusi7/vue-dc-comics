@@ -1,71 +1,44 @@
 <template>
   <footer>
+
     <div class="container">
-      <div class="footer-info">
-        <ul>
-          <li v-for="(card, i) in cards" :key="i">
-            <figure class="wrapper-img">
-              <img :src= "card.img" alt="">
-            </figure>
-            {{ card.text }}
-          </li>
-        </ul>
-      </div>
+      
+      <CategoriesMain />
+
     </div>
+
     <div class="container-2">
+
       <div class="footer-list">
+
         <div class="container">
+
           <div class="list-wrapper">
+
             <div>
               <ul>
-                <li>De Comics</li>
-                <li>item</li>
-                <li>item</li>
-                <li>item</li>
-                <li>item</li>
-                <li>item</li>
-                <li>item</li>
+                <li v-for="(item, i) in items1" :key="i">{{ item }}</li>
               </ul>
               <ul>
-                <li>Shop</li>
-                <li>item</li>
+                <li v-for="(item, i) in items2" :key="i">{{ item }}</li>
               </ul>
             </div>
             <div>
               <ul>
-                <li>Dc</li>
-                <li>item</li>
-                <li>item</li>
-                <li>item</li>
-                <li>item</li>
-                <li>item</li>
-                <li>item</li>
-                <li>item</li>
-                <li>item</li>
-                <li>item</li>
-                <li>item</li>
-                <li>item</li>
+                <li v-for="(item, i) in items3" :key="i">{{ item }}</li>
               </ul>
             </div>
             <div>
               <ul>
-                <li>Sites</li>
-                <li>item</li>
-                <li>item</li>
-                <li>item</li>
-                <li>item</li>
-                <li>item</li>
-                <li>item</li>
+                <li v-for="(item, i) in items4" :key="i">{{ item }}</li>
               </ul>
             </div>
           </div>
-          <div>
-            <figure class="logo-bg">
-              <img src="../assets/img/dc-logo-bg.png" alt="">
-            </figure>
-          </div>
+
         </div>
+
       </div>
+
       <div class="footer-social">
         <div class="container">
           <div>
@@ -74,58 +47,56 @@
           <div>
             <ul class="list-social">
               <li>Follow Us</li>
-              <li>
-                <img src="../assets/img/footer-facebook.png" alt="">
-              </li>
-              <li>
-                <img src="../assets/img/footer-twitter.png" alt="">
-              </li>
-              <li>
-                <img src="../assets/img/footer-youtube.png" alt="">
-              </li>
-              <li>
-                <img src="../assets/img/footer-pinterest.png" alt="">
-              </li>
-              <li>
-                <img src="../assets/img/footer-periscope.png" alt="">
+              <li v-for="(item, i) in items5" :key="i">
+                <img :src="item.img" alt="">
               </li>
             </ul>
           </div>
         </div>
       </div>
     </div>
+
   </footer>
 </template>
 
 <script>
+
+import CategoriesMain from '../components/Categories.vue'
+
 export default {
-  name: 'FooterContent',
+
+  components: {
+    CategoriesMain
+  },
+
   data() {
     return {
-      cards: [
+      items1:['Dc Comics', 'Characters', 'Comics','Movies', 'TV', 'Games', 'Videos', 'News'],
+      items2:['Shop', 'Shop DC', 'Shop DC Collectibles'],
+      items3:['DC', 'Terme Of Use', 'Privacy policy (New)', 'Ad Choises', 'Advertising', 'Jobs', 'Subscriptions', 'Talent Workshops', 'CPSC Certificates', 'Ratings', 'Shop Help', 'Contact Us'],
+      items4:['DC', 'MAD MAgazine', 'DC Kids', 'DC Universe', 'DC Power Visa'],
+      items5:[
         {
-          text: 'DigitalComics',
-          img: '../assets/img/buy-comics-digital-comics.png',
+          img: require('../assets/img/footer-facebook.png')
         },
         {
-          text: 'DC Merchandise',
-          img: '../assets/img/buy-comics-merchandise.png',
+          img: require('../assets/img/footer-twitter.png')
         },
         {
-          text: 'Subscription',
-          img: '../assets/img/buy-comics-shop-locator.png',
+          img: require('../assets/img/footer-youtube.png')
         },
         {
-          text: 'Comic Shop Locator',
-          img: '../assets/img/buy-comics-subsciption.png',
+          img: require('../assets/img/footer-pinterest.png')
         },
         {
-          text: 'DC Power Visa',
-          img: '../assets/img/buy-comics-power-visa.png',
+          img: require('../assets/img/footer-periscope.png')
         },
       ]
     }
-  }
+  },
+
+  name: 'FooterContent',
+  
 }
 </script>
 
@@ -139,25 +110,6 @@ footer {
 
   padding: 30px 0;
 
-  .footer-info .wrapper-img {
-    width: 50px;
-  }
-
-  .footer-info ul {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    color: white;
-    text-transform: uppercase;
-    font-size: 12px;
-  }
-
-  .footer-info ul li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
 }
 
 .footer-list {
@@ -168,15 +120,27 @@ footer {
   background-position: center;
 
   .container {
+    background-image: url('../assets/img/dc-logo-bg.png');
+    background-repeat: no-repeat;
+    background-position: 90% 45%;
+    background-size: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 300px;
   }
 
   .list-wrapper {
     display: flex;
-    gap: 10px;
+    gap: 5px;
+
+    li {
+      line-height: 20px;
+    }
+
+  li {
+    cursor: pointer;
+  }
+
   }
 
   ul li:first-child {
@@ -188,8 +152,9 @@ footer {
   }
 
   ul {
-    padding: 10px 15px;
+    padding: 10px 10px;
     color: rgb(128, 128, 128);
+    font-size: 14px;
   }
 
 }
@@ -201,25 +166,31 @@ footer {
   .container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    gap: 10px;
   }
 
   .list-social {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
+    cursor: pointer;
   }
 
   .list-social li:first-child {
+    font-weight: 700;
     color: dodgerblue;
     text-transform: uppercase;
   }
 
   .button {
     padding: 15px;
-    border: 1px solid dodgerblue;
+    border: 2px solid dodgerblue;
     background-color: rgb(54, 54, 54);
     color: white;
     text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 700;
   }
 
 }
