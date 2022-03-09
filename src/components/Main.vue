@@ -10,13 +10,8 @@
       <button class="button button-jumbo">Current Series</button>
 
       <ul class="card-wrapper">
-        
-        <li class="card-item">
-          <figure>
-            <img src="https://www.dccomics.com/sites/default/files/styles/covers192x291/public/comic-covers/2018/09/AC1000_DLX_162-001_HD_5ba13723281ab0.37845353.jpg?itok=ZsI-C5eX" alt="">
-          </figure>
-          <p>Action comics</p>
-        </li>
+
+        <CardMain v-for="(card, i) in cards" :key="i" :img="card.thumb" :title="card.series" />
         
       </ul>
 
@@ -28,8 +23,14 @@
 </template>
 
 <script>
+
+import CardMain from '../components/Card.vue'
+
 export default {
   name: 'MainContent',
+  components: {
+    CardMain,
+  },
   data() {
     return {
       cards: [
@@ -156,24 +157,7 @@ main {
     align-items: center;
     flex-wrap: wrap;
     gap: 15px;
-    padding-bottom: 20px;
-
-    .card-item {
-      flex-basis: calc( (100% / 6) - 15px);
-
-      img {
-        aspect-ratio: 1;
-        object-fit: cover;
-        object-position: top center;
-      }
-
-      p {
-        text-transform: uppercase;
-        padding: 15px 0;
-      }
-
-    }
-
+    padding-bottom: 30px;
   }
 
 }
