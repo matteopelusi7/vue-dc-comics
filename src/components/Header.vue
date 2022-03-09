@@ -122,6 +122,10 @@ export default {
         width: 100%;
       }
 
+      .active {
+        color: dodgerblue;
+      }
+
   }
 
 }
